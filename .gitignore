@@ -1,12 +1,21 @@
+ # VS Code
+.vscode/
+
 # Operating system files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# VS Code temporary files
-.vscode/*.log
+# Temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
 
-# Node.js
+# Node.js (for future projects)
 node_modules/
 
-# Environment variables
+# Environment variables / secrets
 .env
+.env.*
