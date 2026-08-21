@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SonicBuds | Precision Sound, Future Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#5a1c00",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed": "#23005c",
+                        "on-primary": "#002d6f",
+                        "on-tertiary-container": "#4f1700",
+                        "secondary-container": "#571bc1",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#c4abff",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#7f2b00",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed": "#370e00",
+                        "tertiary": "#ffb599",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary-fixed": "#001945",
+                        "tertiary-container": "#f36420",
+                        "surface-variant": "#353534",
+                        "primary": "#b0c6ff",
+                        "outline": "#8c90a1",
+                        "surface-dim": "#131313",
+                        "surface": "#131313",
+                        "surface-container-highest": "#353534",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-secondary": "#3c0091",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#424655",
+                        "primary-container": "#568dff",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-tint": "#b0c6ff",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-primary-container": "#002661",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e9ddff",
+                        "on-surface-variant": "#c2c6d8",
+                        "error-container": "#93000a",
+                        "secondary": "#d0bcff",
+                        "surface-bright": "#3a3939",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#0058cb",
+                        "tertiary-fixed-dim": "#ffb599"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "max-width": "1440px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.secondary'));
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            opacity: 0.5;
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(176, 198, 255, 0.15);
+            border-color: rgba(176, 198, 255, 0.3);
+        }
+
+        /* Ambient background glow */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(176, 198, 255, 0.05) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .ambient-glow-2 {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(208, 188, 255, 0.03) 0%, transparent 70%);
+            bottom: 20%;
+            left: -200px;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+<div class="ambient-glow-1"></div>
+<div class="ambient-glow-2"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-[0_40px_40px_-15px_rgba(0,0,0,0.15)] transition-all duration-300" id="mainNav">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-max-width mx-auto">
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface flex items-center gap-2 group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:rotate-12 transition-transform" style="font-variation-settings: 'FILL' 1;">headphones</span>
+                SonicBuds
+            </a>
+<!-- Desktop Nav -->
+<ul class="hidden md:flex items-center gap-8">
+<li><a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary hover:scale-105 transition-all duration-300" href="#">Home</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary hover:scale-105 transition-all duration-300" href="#">Shop</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary hover:scale-105 transition-all duration-300" href="#">Categories</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary hover:scale-105 transition-all duration-300" href="#">About Us</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary hover:scale-105 transition-all duration-300" href="#">Contact</a></li>
+</ul>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="text-on-surface hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="Cart" class="text-on-surface hover:text-primary transition-colors p-2 relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button aria-label="Account" class="text-on-surface hover:text-primary transition-colors p-2 hidden md:block">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center px-margin-mobile md:px-margin-desktop py-16 overflow-hidden">
+<div class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-8 max-w-xl order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-primary/20 bg-primary/5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">New Release</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
+                        Experience Sound <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Like Never Before</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Immerse yourself in precision audio with next-gen active noise cancellation and ergonomic glassmorphic design. Built for audiophiles, designed for the future.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+<div class="flex items-end gap-2 pr-6">
+<span class="font-body-md text-body-md text-on-surface-variant">Starting from</span>
+<span class="font-headline-md text-headline-md text-on-surface">₹1,999</span>
+</div>
+<div class="flex gap-4 w-full sm:w-auto">
+<button class="btn-primary flex-1 sm:flex-none text-on-primary-fixed font-semibold px-8 py-4 rounded-full hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg shadow-primary/20">
+                                Shop Now
+                            </button>
+<button class="flex-1 sm:flex-none glass-panel text-on-surface font-semibold px-8 py-4 rounded-full hover:bg-surface-container-high transition-all duration-300">
+                                Explore Products
+                            </button>
+</div>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 h-[400px] md:h-[600px] flex justify-center items-center">
+<!-- Placeholder for IMAGE_6 (Wait, IMAGE_6 wasn't in the available list in the prompt text, but it was in the text request. I will use a placeholder styling for it to ensure valid HTML, though user provided others in the list. Wait, I MUST use available images if possible, or placeholder if missing. I will use a placeholder URL.) -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl scale-150"></div>
+<div class="relative z-10 w-full h-full animate-[float_6s_ease-in-out_infinite]">
+<img alt="SonicBuds Hero Image" class="w-full h-full object-contain drop-shadow-2xl" data-alt="A highly detailed close-up of futuristic, high-gloss black true wireless earbuds suspended in mid-air against a deep black background. The earbuds feature subtle, pulsing electric blue LED light strips emphasizing their sleek, ergonomic curves. The lighting is dramatic, high-contrast studio lighting highlighting the specular reflections on the glossy hardware. The mood is premium, technologically advanced, and immersive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB33H4e_tzPcYOCSJL-oT7Q2_C-QYWBpLIAYf0KBsolUMfLO054nbHRq7P3BE47IJTtapvLGLb2hEkrcLqcQ9pDrKKF7NsAOmxQxQqPH_t9lzgq8RlbaJbTQ3gMlQJAJXNgPsdWzaVWdbmbOyfwTZQR4niBOdpQ_Af3k7DHaCNYajeTq4W19pxJTclXU_rvHkbY-2ctPib52JbkiRz0N77UHq8YdAWGmUH9_E-SjmBxeFk0FmyZGlhWrQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories Bento -->
+<section class="px-margin-mobile md:px-margin-desktop py-24 bg-surface-container-lowest">
+<div class="max-w-max-width mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Shop by Category</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Find the perfect fit for your lifestyle.</p>
+</div>
+<a class="text-primary font-medium hover:text-primary-fixed transition-colors flex items-center gap-1 group" href="#">
+                        View All Categories <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Category 1 -->
+<a class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-4 group hover:-translate-y-2 glow-hover transition-all duration-300 aspect-square" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">wifi</span>
+</div>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">Wireless</h3>
+</a>
+<!-- Category 2 -->
+<a class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-4 group hover:-translate-y-2 glow-hover transition-all duration-300 aspect-square" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-3xl">sports_esports</span>
+</div>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">Gaming</h3>
+</a>
+<!-- Category 3 -->
+<a class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-4 group hover:-translate-y-2 glow-hover transition-all duration-300 aspect-square" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined text-3xl">noise_aware</span>
+</div>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">Noise Cancelling</h3>
+</a>
+<!-- Category 4 -->
+<a class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-4 group hover:-translate-y-2 glow-hover transition-all duration-300 aspect-square" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-colors">
+<span class="material-symbols-outlined text-3xl">directions_run</span>
+</div>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">Sports</h3>
+</a>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="px-margin-mobile md:px-margin-desktop py-24 relative">
+<div class="max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Featured Collection</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Discover our most advanced acoustic engineering housed in stunning glassmorphic designs.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="glass-panel rounded-3xl p-4 flex flex-col group hover:-translate-y-2 glow-hover transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-6 left-6 z-10">
+<span class="px-3 py-1 bg-surface-container/80 backdrop-blur-md rounded-full text-xs font-semibold text-primary border border-white/5">Pro Series</span>
+</div>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container-lowest relative flex items-center justify-center p-6">
+<img alt="SonicBuds Air Pro" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByHUHMJk39QFKpelbIAbeO6b-Y58df9iymiNWHuzNHBTiBY2jN-6e4FRpEVmmRF9tH4jQAIDTORSHoEdfN--Y-faxsKBI2sV3Q1qyxxPDj2_d_0uMJm739DO63oO3gDZ0xyv3INnp-0fgmbC5EJy4l8XxwdOFQRBAu1tYXKbEJjWOle7FG8AgWkWVEn56jT3xnCjcps3CvXv4BiTzQ1kBJ_-wxiolEdnd-8JAVDckS4tKc1Zkal3uC-w"/>
+</div>
+<div class="px-2 pb-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">SonicBuds Air Pro</h3>
+<span class="font-semibold text-primary">₹3,499</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-6 line-clamp-2">Minimalist futuristic wireless earbuds with deep bass and immersive clarity.</p>
+<div class="mt-auto">
+<button class="w-full py-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-primary hover:text-on-primary transition-colors font-medium flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="glass-panel rounded-3xl p-4 flex flex-col group hover:-translate-y-2 glow-hover transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-6 left-6 z-10">
+<span class="px-3 py-1 bg-surface-container/80 backdrop-blur-md rounded-full text-xs font-semibold text-secondary border border-white/5">Gaming</span>
+</div>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container-lowest relative flex items-center justify-center p-6">
+<img alt="SonicBuds Gaming X" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA41raZ-tSOOV8f9qDXUHca_CUv6XEh47RUL1dxL0OgBcSiq_S_Qap5GH91ZejORnfX0YJRaspnU204EDEy-nfp1JaahtK1KLdord7M_AzSUl7AC0YU0Zp5CqQyXg9Xc8jpOYliKzhXFh7l3LB53RknmLitzLU_GKoPCUhBLsTOndYipF4FBLZDcuJpy1mcWdy013gFxQwPpHOCdPHx3ZOsuEOUmllg7a5r6VNsxytwsWL9ZzSBgRNS3g"/>
+</div>
+<div class="px-2 pb-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">SonicBuds Gaming X</h3>
+<span class="font-semibold text-secondary">₹4,999</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-6 line-clamp-2">Ultra-low latency, aggressive design with custom purple neon lighting.</p>
+<div class="mt-auto">
+<button class="w-full py-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors font-medium flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="glass-panel rounded-3xl p-4 flex flex-col group hover:-translate-y-2 glow-hover transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-6 left-6 z-10">
+<span class="px-3 py-1 bg-surface-container/80 backdrop-blur-md rounded-full text-xs font-semibold text-tertiary border border-white/5">Flagship ANC</span>
+</div>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container-lowest relative flex items-center justify-center p-6">
+<img alt="SonicBuds X1" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ1WVPMtBd92ChCDYag8QRCh723WvwjJKRc6L_KPXROnjyUxBUcPNsH-Uqm1pv_NP1elAuRyQwLUXEY-jIMD8KOpbVXz4dE3klCWqsJ_schrUxEst5-E085qUr3chEp9aHa5P81NEcs-RjGbNNlHuaBmcoHN_PAFB0YmusWriRv7Q9iEZDkxvr0sPIE2SZ0hxhWmWqJnZBFex5de1UDc2d4LhvJ_7wOGVHO7vMmOy7iyq6nlmNHTFn4A"/>
+</div>
+<div class="px-2 pb-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">SonicBuds X1</h3>
+<span class="font-semibold text-tertiary">₹6,999</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-6 line-clamp-2">Ultra-high-end metallic finish with industry-leading noise cancellation.</p>
+<div class="mt-auto">
+<button class="w-full py-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-tertiary hover:text-on-tertiary transition-colors font-medium flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="glass-panel rounded-3xl p-4 flex flex-col group hover:-translate-y-2 glow-hover transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-6 left-6 z-10">
+<span class="px-3 py-1 bg-surface-container/80 backdrop-blur-md rounded-full text-xs font-semibold text-primary-container border border-white/5">Active Fit</span>
+</div>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container-lowest relative flex items-center justify-center p-6">
+<img alt="SonicBuds Sport Fit" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZggnZr97QvwDtKJPEbNfODhmKY9TKosPqpcl3xj5awDci5jLUE6BQq6xwDoXP9QS65Fy5IA-u37B2_uoQIdnnW3OWVGgHsUMr3HlamSRbnXpsiCtU11JxpjDHxlrRvZMlDlWxIJV6AOd0SbkRkAJPYqIR8r7fxSiEkrJPbcts_5y3vQm8OitThNN4rIQhMQhmHWTHapsgYuWgrPEsSl7cwo2ZaMkqY2PwbJoJvR4P3s0nl6K2bsANaw"/>
+</div>
+<div class="px-2 pb-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-xl font-semibold text-on-surface">SonicBuds Sport Fit</h3>
+<span class="font-semibold text-primary-container">₹2,499</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-6 line-clamp-2">Ergonomic ear hooks, sweat-proof design for extreme workouts.</p>
+<div class="mt-auto">
+<button class="w-full py-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-colors font-medium flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Promotional Banner -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-max-width mx-auto">
+<div class="glass-panel rounded-[3rem] overflow-hidden relative min-h-[400px] flex items-center">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest to-transparent z-10"></div>
+<!-- Background Image (Large Earbud Visual) -->
+<div class="absolute inset-0 z-0 flex justify-end" data-alt="A massive, abstract close-up macro shot of a sleek metallic earbud speaker mesh glowing with electric blue and purple hues against a pure black background. The lighting is dramatic, emphasizing the premium build quality and futuristic glassmorphic aesthetic of the audio equipment. Deep contrast and high resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFPb8T1cWF-mKHjHVWCvi6xfZ7EnH3CxvgMsT7MiEHNt8ihpS5zPMRr3RcjBooxPJxlVrQXPilds_DMfltQA8gs5fgzNtX4rU70GGmwkXUOYBffsO7po2JIzyDUp2O619JN87CfU41JI6J7Dzq3l1uwpjdIsUfH1ZwWX6t1yiWcf6RLhIvVvO2IHkUpO3TWrCg9LY77gFFni6oeuRqs779A8_J6vYD8of5wW4bEghyXV1ggKIPrX68UA'); background-size: cover; background-position: right center;">
+</div>
+<div class="relative z-20 p-12 md:p-24 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-secondary/30 bg-secondary/10 mb-6">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Limited Time Offer</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Up to 50% OFF</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Upgrade your audio experience today. Premium sound shouldn't be a luxury.</p>
+<button class="btn-primary text-on-primary-fixed font-semibold px-8 py-4 rounded-full hover:scale-105 transition-all shadow-lg shadow-primary/20">
+                            Claim Offer Now
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full relative pt-16">
+<div class="max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16">
+<div class="space-y-6">
+<a class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">headphones</span>
+                    SonicBuds
+                </a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Precision Sound, Future Design. Immersive audio experiences crafted for the modern world.
+                </p>
+<div class="flex gap-4">
+<!-- Social icons using material symbols placeholders for visual weight -->
+<a class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">share</span></a>
+<a class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+<a class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">play_circle</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase tracking-widest">Shop</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Shop All</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Wireless</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Gaming</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Accessories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase tracking-widest">Support</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">FAQ</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Returns</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Support</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase tracking-widest">Legal</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/5 py-8 px-margin-mobile md:px-margin-desktop text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 SonicBuds. Precision Sound, Future Design.</p>
+</div>
+</footer>
+<script>
+        // Simple navbar background transition on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-surface/80');
+                nav.classList.remove('bg-surface/60');
+            } else {
+                nav.classList.add('bg-surface/60');
+                nav.classList.remove('bg-surface/80');
+            }
+        });
+
+        // Add custom float animation for hero
+        tailwind.config.theme.extend.keyframes = {
+            float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+            }
+        }
+    </script>
+</body></html>

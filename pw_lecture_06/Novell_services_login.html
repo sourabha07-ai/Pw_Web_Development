@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Novell Services Login</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .mainForm {
+        width: 400px;
+        min-height: 200px;
+        margin: 10px;
+        padding: 0 25px;
+        background-color: white;
+        border: 1px solid #232121;
+      }
+
+      .heading {
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .heading h2 {
+        font-size: 28px;
+        font-weight: normal;
+      }
+
+      /* Username, Password, City and Server */
+      .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .form-row label {
+        width: 160px;
+        font-size: 18px;
+      }
+
+      .form-row input {
+        width: 330px;
+        height: 28px;
+      }
+
+      .form-row select {
+        width: 270px;
+        height: 35px;
+        font-size: 17px;
+      }
+
+      /* Role section */
+      .role {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .role-title {
+        width: 160px;
+        font-size: 18px;
+        line-height: 30px;
+      }
+
+      .role-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .role-options label {
+        font-size: 18px;
+      }
+
+      /* Checkbox section */
+      .sign-on {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 35px;
+      }
+
+      .sign-title {
+        width: 160px;
+        font-size: 18px;
+        line-height: 30px;
+      }
+
+      .sign-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .sign-options label {
+        font-size: 18px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        width: 20px;
+        vertical-align: middle;
+      }
+
+      /* Buttons */
+      .btn {
+        text-align: center;
+      }
+
+      .btn button {
+        padding: 6px 18px;
+        margin: 5px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="mainForm">
+      <div class="heading">
+        <h2>Novell Services Login</h2>
+      </div>
+
+      <form action="#">
+        <!-- Username -->
+        <div class="form-row">
+          <label for="username">Username:</label>
+          <input type="text" id="username" />
+        </div>
+
+        <!-- Password -->
+        <div class="form-row">
+          <label for="password">Password:</label>
+          <input type="password" id="password" />
+        </div>
+
+        <!-- City -->
+        <div class="form-row">
+          <label for="city">City of Employment:</label>
+          <input type="text" id="city" />
+        </div>
+
+        <!-- Web Server -->
+        <div class="form-row">
+          <label for="server">Web server:</label>
+
+          <select id="server">
+            <option value="" selected disabled>-- Choose a server --</option>
+            <option value="nebula">Nebula</option>
+            <option value="pulsar">Pulsar</option>
+            <option value="comet">Comet</option>
+            <option value="orbit">Orbit</option>
+          </select>
+        </div>
+
+        <!-- Role section -->
+        <div class="role">
+          <div class="role-title">
+            Please specify<br />
+            your role:
+          </div>
+
+          <div class="role-options">
+            <label><input type="radio" name="role" />Admin</label>
+            <label><input type="radio" name="role" />Engineer</label>
+            <label><input type="radio" name="role" />Manager</label>
+            <label><input type="radio" name="role" />Guest</label>
+          </div>
+        </div>
+
+        <!-- Single Sign-on -->
+        <div class="sign-on">
+          <div class="sign-title">
+            Single Sign-on<br />
+            to the following:
+          </div>
+
+          <div class="sign-options">
+            <label><input type="checkbox" name="sign" />Mail</label>
+            <label><input type="checkbox" name="sign" />Payroll</label>
+            <label><input type="checkbox" name="sign" />Self-service</label>
+          </div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn">
+          <button type="submit">Login</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

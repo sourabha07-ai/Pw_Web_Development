@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Puja's Pizza Delivery</title>
+</head>
+
+<body>
+    <div class="form-class">
+        <form action="">
+            <!-- Headding  -->
+            <div class="heading">
+                <h2>Puja's Pizza Delivery</h2>
+                <h3>Online Order Form</h3>
+                <p>required fields</p>
+            </div>
+
+            <div class="customer-details">
+                <!-- Customer details  -->
+                <fieldset>
+                    <legend>Customer details*</legend>
+                    <!-- Name  -->
+                    <div class="form-details">
+                        <label for="name">*Name: </label>
+                        <input type="text" id="name">
+                    </div>
+
+                    <!-- Address  -->
+                    <div class="form-details">
+                        <label for="address">*Address: </label>
+                        <input type="text" id="address">
+                    </div>
+
+                    <!-- Town/City  -->
+                    <div class="form-details">
+                        <label for="town">*Town/City: </label>
+                        <input type="text" id="town">
+                    </div>
+
+                    <!-- Postcode -->
+                    <div class="form-details">
+                        <label for="postcode">*Postcode: </label>
+                        <input type="number" id="postcode" min="0">
+                    </div>
+
+                    <!-- Telephone -->
+                    <div class="form-details">
+                        <label for="tel">*Telephone: </label>
+                        <input type="number" id="tel" min="0">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-details">
+                        <label for="email">*Email: </label>
+                        <input type="email" id="email">
+                    </div>
+                </fieldset>
+            </div>
+            <div class="middle-form">
+                <!-- Topping -->
+                <div>
+                    <fieldset>
+                        <legend>Topping*</legend>
+                        <label><input type="radio" name="topping">Margherita</label><br>
+                        <label><input type="radio" name="topping">Four Seasons</label><br>
+                        <label><input type="radio" name="topping">Meat Feast</label><br>
+                    </fieldset>
+                </div>
+
+                <!-- Size  -->
+                <div>
+                    <fieldset>
+                        <legend>Size*</legend>
+                        <label><input type="radio" name="size">Small</label><br>
+                        <label><input type="radio" name="size">Medium</label><br>
+                        <label><input type="radio" name="size">Large</label><br>
+                    </fieldset>
+                </div>
+
+
+                <!-- Extras  -->
+                <div>
+                    <fieldset>
+                        <legend>Extras*</legend>
+                        <label><input type="checkbox" name="extras">Mushrooms</label><br>
+                        <label><input type="checkbox" name="extras">Green peppers</label><br>
+                        <label><input type="checkbox" name="extras">Anchovies</label><br>
+                        <label><input type="checkbox" name="extras">Extra cheese</label><br>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="footer-form">
+                <fieldset>
+                    <legend>Delivery</legend>
+                    <label for="d-time">preferred delivery time: </label>
+                    <input type="time"><br>
+
+                    <label for="instuction">Delivery Instruction:</label><br>
+                    <textarea id="instuction" placeholder="Write Something..."></textarea>
+                </fieldset>
+            </div>
+
+            <button type="submit">Submit order</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
