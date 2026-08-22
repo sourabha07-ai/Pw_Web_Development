@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f7fb;
+    color: #171717;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+body > div {
+    width: 92%;
+    max-width: 1200px;
+    margin: 25px auto;
+}
+
+/* =========================
+   HEADER / HERO
+========================= */
+
+header {
+    min-height: 430px;
+    padding: 45px 55px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 85% 20%, #c7d2fe, transparent 25%),
+        radial-gradient(circle at 15% 90%, #bae6fd, transparent 25%),
+        #ffffff;
+
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Small badge */
+
+header::before {
+    content: "AVAILABLE FOR OPPORTUNITIES";
+    width: fit-content;
+    padding: 7px 14px;
+    margin-bottom: 20px;
+
+    background: #ecfdf5;
+    color: #059669;
+
+    border: 1px solid #a7f3d0;
+    border-radius: 50px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Name */
+
+header h2 {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: -3px;
+    color: #111827;
+    margin-bottom: 18px;
+}
+
+/* Subtitle */
+
+header > p {
+    font-size: 19px;
+    color: #64748b;
+    max-width: 600px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    display: flex;
+    gap: 8px;
+
+    padding: 7px;
+
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid #e5e7eb;
+    border-radius: 50px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+
+    padding: 9px 14px;
+    border-radius: 30px;
+
+    transition: 0.25s;
+}
+
+nav a:hover {
+    background: #111827;
+    color: white;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+main section {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+
+    transition: 0.3s;
+}
+
+main section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* About section full width */
+
+main section:first-child {
+    grid-column: span 2;
+}
+
+/* Video section full width */
+
+main section:last-child {
+    grid-column: span 2;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+section h3,
+footer h3 {
+    font-size: 25px;
+    letter-spacing: -0.8px;
+    margin-bottom: 22px;
+    color: #111827;
+}
+
+section h3::before,
+footer h3::before {
+    content: "";
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+
+    margin-right: 10px;
+
+    background: #6366f1;
+    border-radius: 50%;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+figure {
+    float: left;
+    margin: 0 30px 15px 0;
+    text-align: center;
+}
+
+figure img {
+    width: 170px;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 0 0 1px #e5e7eb,
+        0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+figcaption {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 8px;
+}
+
+section p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+b,
+strong {
+    color: #4f46e5;
+}
+
+/* Clear float */
+
+main section:first-child::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* =========================
+   PROJECT CARDS
+========================= */
+
+article {
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    margin-bottom: 14px;
+
+    transition: 0.3s;
+}
+
+article:hover {
+    background: #ffffff;
+    border-color: #c7d2fe;
+
+    transform: translateX(5px);
+
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+article h4 {
+    font-size: 17px;
+    color: #111827;
+    margin-bottom: 5px;
+}
+
+article p {
+    font-size: 14px;
+}
+
+article a {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+#skills {
+    margin-top: 30px;
+}
+
+ul {
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+ul li {
+    padding: 9px 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+
+    font-size: 13px;
+    color: #475569;
+
+    transition: 0.25s;
+}
+
+ul li:hover {
+    background: #111827;
+    color: white;
+    border-color: #111827;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+video {
+    width: 100%;
+    max-width: 800px;
+
+    display: block;
+    margin: auto;
+
+    border-radius: 20px;
+
+    background: #111827;
+
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 20px;
+
+    padding: 40px;
+
+    background: #111827;
+    color: white;
+
+    border-radius: 25px;
+
+    position: relative;
+}
+
+footer h3 {
+    color: white;
+}
+
+footer p {
+    color: #94a3b8;
+}
+
+footer a {
+    color: #a5b4fc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    max-width: 650px;
+    margin-top: 25px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+
+    color: #e5e7eb;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: #1f2937;
+
+    border: 1px solid #374151;
+    border-radius: 10px;
+
+    color: white;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #818cf8;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    padding: 12px 22px;
+
+    background: white;
+    color: #111827;
+
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+button:hover {
+    background: #a5b4fc;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+footer > a {
+    display: inline-block;
+
+    margin-right: 18px;
+    margin-top: 15px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Copyright */
+
+footer > p:last-of-type {
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #374151;
+
+    text-align: center;
+
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    body > div {
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    header {
+        min-height: 500px;
+        padding: 35px 25px;
+    }
+
+    header h2 {
+        font-size: 45px;
+        letter-spacing: -2px;
+    }
+
+    nav {
+        position: static;
+        margin-top: 35px;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        border-radius: 18px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    main section:first-child,
+    main section:last-child {
+        grid-column: span 1;
+    }
+
+    main section {
+        padding: 25px 20px;
+    }
+
+    figure {
+        float: none;
+        margin: 0 auto 25px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul li {
+        border-radius: 12px;
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+}
