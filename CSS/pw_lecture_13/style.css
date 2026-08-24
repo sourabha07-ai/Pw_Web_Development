@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+      background: linear-gradient(
+        180deg,
+        orange,
+        #fefefe,
+        green
+    );
+}
+.Wrapper{
+    border: 5px solid white;
+    display: flex;
+    /* flex-direction: column; */
+    height: 100vh;
+
+      /** main axis */
+    justify-content: center;
+    /* justify-content: space-around; */
+    /* justify-content: space-between;  */
+    /* justify-content: space-evenly; */
+
+    /* *  cross axis  */
+    align-items: center;
+    /* align-items: flex-end; */
+    /* align-items: end; */
+    /* align-items: start; */
+    /* align-items: flex-start; */
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    /* align-content: center; */
+    /* align-content: start; */
+    /* align-content: end; */
+    /* align-content: space-around; */
+    /* align-content: space-between; */
+    /* align-content: space-evenly; */
+
+     
+}
+
+.card{
+    height: 120px;
+    width: 120px;
+    border-radius: 32px;
+    color: #0011a8;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.3);
+    /* backdrop-filter:blur(10px) ; */
+    backdrop-filter: invert(0%);
+    border: 1px solid rgba(255, 255, 255,0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.90);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+
+
+    
+}
