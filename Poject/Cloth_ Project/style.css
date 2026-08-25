@@ -1,3 +1,9 @@
 body{
     font-family: 'popine',sans-serif;
 }
+
+table,th,td{
+    border: 1px solid black;
+    padding: 10px; 
+    border-collapse: collapse;
+}
