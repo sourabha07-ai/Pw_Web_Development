@@ -1,21 +1,21 @@
 // console.log("Welcome Sourabha!...");
 
 //!  Var 
-console.log(num);
-var num = 23;
-console.log(num); //re-declare allowed
-var num = 24;
-console.log(num);
-num  = 25; //Updation
-console.log(num);
+// console.log(num);
+// var num = 23;
+// console.log(num); //re-declare allowed
+// var num = 24;
+// console.log(num);
+// num  = 25; //Updation
+// console.log(num);
  
 
 //! let 
-// let name = "Sourabha!";
-// console.log(name);
-// // let name = "liku";  //redeclaration allowed
-// name = "Sourabha Bhai! ";
-// console.log(name);
+let name = "Sourabha!";
+console.log(name);
+// let name = "liku";  //redeclaration allowed
+name = "Sourabha Bhai! ";
+console.log(name);
 
 //! const 
 // const adharCard = 1234567;
