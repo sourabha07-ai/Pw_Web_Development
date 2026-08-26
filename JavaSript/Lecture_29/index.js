@@ -25,8 +25,12 @@
 // console.log(adharCard);
 
 //! crezy 
-const name_Of_Vip = "Sourabha!";
-const message = `Welcome back ${name_Of_Vip}`;
-console.log(message);
+// const name_Of_Vip = "Sourabha!";
+// const message = `Welcome back ${name_Of_Vip}`;
+// console.log(message);
 
+
+const name_Of_Vip = "Sourabha!";
+const message = `Welcome back ${console.log(name_Of_Vip)}`;
+console.log(message);
 
