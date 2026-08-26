@@ -18,15 +18,15 @@
 // console.log(name);
 
 //! const 
-const adharCard = 1234567;
-console.log(adharCard);
+// const adharCard = 1234567;
+// console.log(adharCard);
 // const adharCard  = 32456; //Re declaration not allowed
 // adharCard = 325643; //TypeError: Assignment to constant variable.
-console.log(adharCard);
+// console.log(adharCard);
 
 //! crezy 
-// const name_Of_Vip = "Sourabha!";
-// const message = `Welcome back ${name_Of_Vip}`;
-// console.log(message);
+const name_Of_Vip = "Sourabha!";
+const message = `Welcome back ${name_Of_Vip}`;
+console.log(message);
 
 
