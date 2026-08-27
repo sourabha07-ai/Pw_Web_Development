@@ -5,12 +5,16 @@
 } */
 
 body{
-     /* background: linear-gradient(
+     background: linear-gradient(
         167deg,
         rgb(251, 252, 251),
         #55e104,
         #e7347f
-    ); */
+    );
      font-family: 'popine',sans-serif;
      
+}
+table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
 }
