@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(103, 3, 112);
+    color: #FFF8E7;
+}
+a{
+    color: white;
+}
+
+table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 4px;
+}

@@ -1,5 +1,10 @@
-body{
+*{
     font-family: 'popine',sans-serif;
+}
+
+body{
+    background-color: darkgreen;
+    color: #FFF7E6;
 }
 
 table,th,td{
