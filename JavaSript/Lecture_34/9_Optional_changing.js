@@ -10,5 +10,8 @@
     },
     greet: function () {
         return `Hello, my name is ${this.name}`;
-    }
+    },
+    gender:null
 };
+
+console.log(student?.gender);
