@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Subject Manager</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+
+        background: #0d1117;
+        color: #d4d4d4;
+
+        font-family: "Segoe UI", Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Main Container */
+
+      .container {
+        width: 500px;
+
+        background: #11161d;
+
+        border: 1px solid #30363d;
+
+        border-radius: 12px;
+
+        padding: 30px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Heading */
+
+      h1 {
+        color: #ffffff;
+
+        font-size: 26px;
+
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        color: #858585;
+
+        font-size: 14px;
+
+        margin-bottom: 25px;
+      }
+
+      /* Form */
+
+      form {
+        display: flex;
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+      }
+
+      /* Input */
+
+      input {
+        flex: 1;
+        background: #0d1117;
+        color: #ffffff;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 11px 13px;
+        font-size: 14px;
+        outline: none;
+        transition: 0.2s;
+      }
+
+      input::placeholder {
+        color: #6e7681;
+      }
+
+      input:focus {
+        border-color: #58a6ff;
+
+        box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.15);
+      }
+
+      /* Add Button */
+
+      #btn {
+        background: #238636;
+
+        color: white;
+
+        border: 1px solid #2ea043;
+
+        border-radius: 6px;
+
+        padding: 0 18px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      #btn:hover {
+        background: #2ea043;
+
+        transform: translateY(-1px);
+      }
+
+      #btn:active {
+        transform: translateY(0);
+      }
+
+      /* List Header */
+
+      .list-title {
+        color: #8b949e;
+
+        font-size: 13px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 10px;
+      }
+
+      /* List */
+
+      ul {
+        list-style: none;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+      }
+
+      /* List Item */
+
+      li {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        background: #161b22;
+
+        border: 1px solid #30363d;
+
+        border-radius: 7px;
+
+        padding: 12px 14px;
+
+        color: #c9d1d9;
+
+        font-size: 14px;
+
+        transition: 0.2s;
+      }
+
+      li:hover {
+        border-color: #58a6ff;
+
+        background: #1c2128;
+
+        transform: translateX(3px);
+      }
+
+      /* Delete Button */
+
+      li button {
+        background: transparent;
+
+        color: #f85149;
+
+        border: 1px solid #3d2525;
+
+        border-radius: 5px;
+
+        padding: 5px 10px;
+
+        font-size: 12px;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      li button:hover {
+        background: #f85149;
+
+        color: white;
+
+        border-color: #f85149;
+      }
+
+      /* Responsive */
+
+      @media (max-width: 550px) {
+        .container {
+          width: 90%;
+
+          padding: 22px;
+        }
+
+        form {
+          flex-direction: column;
+        }
+
+        #btn {
+          height: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Subject Manager</h1>
+      <p class="subtitle">Add and manage your subjects</p>
+
+      <form id="form">
+        <input
+          type="text"
+          id="item"
+          name="item"
+          placeholder="Enter subject..."
+          required
+        />
+
+        <button type="submit" id="btn">ADD</button>
+      </form>
+
+      <p class="list-title">Subjects</p>
+      <ul id="list"></ul>
+    </div>
+
+    <script>
+      let form = document.querySelector("#form");
+      let input_item = document.querySelector("#item");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let li = document.createElement("li");
+        let delete_btn = document.createElement("button");
+        delete_btn.textContent = "Delete";
+        li.textContent = input_item.value;
+        li.appendChild(delete_btn);
+
+        delete_btn.addEventListener("click", () => {
+          li.remove();
+        });
+
+        document.querySelector("#list").appendChild(li);
+
+        input_item.value = "";
+      });
+    </script>
+  </body>
+</html>

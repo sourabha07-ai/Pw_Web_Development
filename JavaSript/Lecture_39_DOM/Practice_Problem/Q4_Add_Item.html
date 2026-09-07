@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+                #btn{
+                        padding: 6px;
+                        width: min-content;
+
+                }
+        </style>
+</head>
+<body>
+        <form id="form">
+             <label for="item">Enter Subject: </label>
+             <input type="text" id="item" name="item"><br>
+             <button type="submit" id="btn" >ADD</button>
+
+             
+        </form>
+               
+        <p>List: </p>
+        <ul id="list"></ul>
+
+        <script>
+                let form = document.querySelector('#form');
+                let input_item = document.querySelector('#item');
+                let btn = document.querySelector("#btn");
+
+                form.addEventListener('submit',(event)=>{
+
+                        event.preventDefault();
+
+                       let li = document.createElement('li');
+                       li.textContent = input_item.value;
+
+                       document.querySelector("#list").appendChild(li);
+                })
+
+                
+
+        </script>
+</body>
+</html>

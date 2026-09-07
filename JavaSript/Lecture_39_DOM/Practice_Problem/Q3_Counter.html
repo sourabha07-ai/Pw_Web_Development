@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h3 id="result">Counter: 0</h3>
+    <button id="btn1">[ + ]</button>
+    <button id="btn2">[ - ]</button>
+    <button id="btn3">[ Reset ]</button>
+
+    <script>
+      let result = document.querySelector("#result");
+      let btn1 = document.querySelector("#btn1");
+      let btn2 = document.querySelector("#btn2");
+      let btn3 = document.querySelector("#btn3");
+
+      let count = 0;
+
+      btn1.addEventListener("click", (event) => {
+        count++;
+        result.textContent = `Counter: ${count}`;
+      });
+
+      btn2.addEventListener("click", (event) => {
+        count--;
+        result.textContent = `Counter: ${count}`;
+      });
+
+      btn3.addEventListener("click", (event) => {
+        count = 0;
+        result.textContent = `Counter: ${count}`;
+      });
+    </script>
+  </body>
+</html>
