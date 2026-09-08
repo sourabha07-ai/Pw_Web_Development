@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <div id="app">
+                <p>existing Paragraph</p>
+                <p id="target">Target before</p>
+        </div>
+
+        <!-- createElement() creates a new HTML element using JavaScript. -->
+        <script>
+                const app = document.querySelector("#app");
+                const heading1 = document.createElement('h1');
+
+
+                //1️⃣ Adding text with textContent
+                heading1.textContent = "Welcome Back Sourabha...!(Heading1)";
+                console.log(heading1);
+
+                //2️⃣ Adding the element to the page
+                app.append(heading1);
+
+                //3️⃣ append() adds something at the end of an element.
+
+                const para1 = document.createElement("p");
+                para1.textContent = "Paragraph 1 ";
+
+                const para2 = document.createElement("p");
+                para2.textContent = "Paragraph 2 ";
+
+                app.append(para1, para2);
+
+                //4️⃣ prepend() adds something at the beginning.
+                const para3 = document.createElement('p');
+                para3.textContent = "Paragraph 3";
+                app.prepend(para3);
+
+                //5️⃣ before() inserts something before an element.
+
+                const target = document.querySelector("#target");
+                const para4 = document.createElement('p');
+                para4.textContent = "Paragraph 4";
+                target.before(para4);
+
+                //6️⃣after() inserts something after an element.
+                const para5 = document.createElement('p');
+                para5.textContent = "Paragraph 5";
+                target.after(para5);
+
+                //7️⃣ remove()
+                target.remove();
+
+        </script>
+
+</body>
+
+</html>
