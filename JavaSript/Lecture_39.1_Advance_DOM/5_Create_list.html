@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+                body {
+                        font-family: 'Space Mono', Courier, monospace;
+                }
+        </style>
+</head>
+
+<body>
+        <div id="list"></div>
+        
+        <script>
+        const list = document.querySelector("#list");
+
+        const heading = document.createElement("h3");
+        heading.textContent = "Subjects:";
+
+        const ul = document.createElement("ul");
+
+        const li_1 = document.createElement("li");
+        li_1.textContent = "HTML";
+
+        const li_2 = document.createElement("li");
+        li_2.textContent = "CSS";
+
+        const li_3 = document.createElement("li");
+        li_3.textContent = "JAVASCRIPT";
+
+        ul.append(li_1, li_2, li_3);
+
+        list.append(heading, ul);
+        </script>
+</body>
+
+</html>
