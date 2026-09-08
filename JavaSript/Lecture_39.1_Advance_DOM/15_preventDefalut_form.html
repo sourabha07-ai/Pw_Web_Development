@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: &quot;Space Mono&quot;">
+    <form>
+      <input type="text" id="inp" placeholder="Enter your Username" />
+      <button id="btn">Submit</button>
+    </form>
+
+    <script>
+      const inp = document.querySelector("#inp");
+      const btn = document.querySelector("#btn");
+      const sub = document.createElement("p");
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        sub.textContent = `${inp.value} form is Submitted Sucessfuly✅`;
+        //        document.body.appendChild(sub);
+        document.querySelector("form").appendChild(sub);
+      });
+    </script>
+  </body>
+</html>
