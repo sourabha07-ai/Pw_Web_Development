@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <form id="form">
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+                <br><br>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+                <button id="btn" type="submit">Submit</button>
+        </form>
+
+        <script>
+                const form = document.querySelector('#form');
+                const input_value = document.querySelector('#username');
+                const pass = document.querySelector('#password');
+                const btn = document.querySelector('#btn');
+                const p = document.createElement('p');
+
+                form.addEventListener('submit',(e)=>{
+                       e.preventDefault();
+
+                       p.textContent = `Input: ${input_value.value}|
+                        Password: ${pass.value}| 
+                        Submit✅  ` ;
+                });
+
+            document.body.appendChild(p);
+
+        </script>
+</body>
+</html>
