@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Click me</button>
+
+    <button class="color-btn">Red</button>
+    <button class="color-btn">Blue</button>
+    <button class="color-btn">Green</button>
+
+    <script>
+      const btn = document.querySelector("#btn");
+      const btn2 = document.querySelectorAll(".color-btn");
+
+      btn.addEventListener("click", (event) => {
+        console.log(event.target);
+        console.log(event.target.id);
+      });
+
+      btn2.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          console.log(event.target.textContent);
+        });
+      });
+    </script>
+  </body>
+</html>
