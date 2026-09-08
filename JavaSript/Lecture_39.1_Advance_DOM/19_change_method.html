@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <!-- change also detects changes to form controls, but its behavior is different from input.
+For a text input, change generally fires after the user changes the value and then commits/leaves the field. -->
+
+        <form >
+                <input type="text" id="name">
+        </form>
+        
+        <script>
+                const username = document.querySelector('#name');
+                username.addEventListener('change',()=>{
+                        console.log("Value Changed");
+                })
+        </script>
+</body>
+</html>
