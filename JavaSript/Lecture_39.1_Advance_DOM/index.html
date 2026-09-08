@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <div id="container">
+                <h1>Hello</h1>
+
+                <div class="box">
+                        <p>Paragraph 1</p>
+                        <p>Paragraph 2</p>
+                </div>
+
+                <button>Click</button>
+        </div>
+
+        <script>
+                const box = document.querySelector(".box");
+                console.log(box.parentElement);
+                console.log(box.children);
+                console.log(box.children[0]); 
+                console.log(box.firstElementChild);
+                console.log(box.lastElementChild);
+                console.log(box.nextElementSibling);
+                console.log(box.previousElementSibling);
+
+        </script>
+</body>
+
+</html>
