@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form">
+      <input id="username" type="text" placeholder="Enter username" />
+
+      <select id="role">
+        <option value="">Select role</option>
+        <option value="student">Student</option>
+        <option value="developer">Developer</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("#form");
+        const username = document.querySelector("#username");
+        const role = document.querySelector("#role");
+        const output = document.querySelector("#output");
+
+        username.addEventListener("input", (event) => {
+          console.log("Typing:", event.target.value);
+        });
+
+        role.addEventListener("change", (event) => {
+          console.log("Role:", event.target.value);
+        });
+
+        username.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            console.log("Enter pressed");
+          }
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          output.textContent = `Username: ${username.value}, Role: ${role.value}`;
+        });
+      });
+    </script>
+  </body>
+</html>
