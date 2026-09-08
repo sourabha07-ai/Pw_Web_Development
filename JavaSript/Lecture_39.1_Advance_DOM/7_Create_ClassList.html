@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+</head>
+
+<body style="font-family: 'Space Mono';">
+
+
+
+
+        <script>
+                const btn = document.createElement('button');
+                btn.textContent = "Click Me";
+
+                // 1️⃣ Add Attributes
+                btn.setAttribute('id', "myButton");
+                btn.setAttribute('type', "submit");
+                btn.setAttribute('title', "Click Here");
+
+                // 2️⃣ add CSS
+                btn.classList.add('btn', "btn-primary"); //* can also add multiple classes at once:
+
+                // 3️⃣ Add to the page
+                document.body.appendChild(btn);
+
+        </script>
+
+</body>
+
+</html>
