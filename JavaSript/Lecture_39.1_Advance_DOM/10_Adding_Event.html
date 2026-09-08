@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        padding: 10px;
+        border-radius: 6px;
+        background-color: rgb(31, 7, 245);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Space Mono'">
+    <script>
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const h2 = document.createElement("h2");
+      const p = document.createElement("p");
+      const btn = document.createElement("button");
+
+      h2.textContent = "JavaScript";
+      p.textContent = "Learn DOM manipulation";
+      btn.textContent = "Learn More";
+
+      btn.addEventListener("click", (event) => {
+        p.textContent = "You Clicked the button!";
+      });
+
+      card.append(h2, p, btn);
+
+      document.body.appendChild(card);
+    </script>
+  </body>
+</html>
