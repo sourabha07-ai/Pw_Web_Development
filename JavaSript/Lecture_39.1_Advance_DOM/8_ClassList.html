@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>classList Example</title>
+
+    <style>
+      .box {
+        width: 200px;
+        padding: 20px;
+        background-color: lightgray;
+        text-align: center;
+      }
+
+      .active {
+        background-color: green;
+        color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body style="font-family: 'Space Mono';">
+    <div id="box" class="box">Hello!</div>
+
+    <button onclick="addClass()">Add Active</button>
+    <button onclick="removeClass()">Remove Active</button>
+    <button onclick="toggleClass()">Toggle Active</button>
+    <button onclick="checkClass()">Check Active</button>
+
+    <script>
+      const element = document.getElementById("box");
+
+      function addClass() {
+        element.classList.add("active");
+      }
+      function removeClass() {
+        element.classList.remove("active");
+      }
+      function toggleClass() {
+        element.classList.toggle("active");
+      }
+      function checkClass() {
+        if (element.classList.contains("active")) {
+          alert("Active class is present!");
+        } else {
+          alert("Active class is NOT present!");
+        }
+      }
+    </script>
+  </body>
+</html>
