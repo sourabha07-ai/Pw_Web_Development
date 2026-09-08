@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: &quot;Space Mono&quot;">
+    <!-- 2️⃣event.currentTarget means:
+
+The element whose event listener is currently running. -->
+
+    <div id="box">
+      <button id="btn">Click Me</button>
+    </div>
+
+    <script>
+      const box = document.querySelector("#box");
+
+      box.addEventListener("click", (event) => {
+        console.log("target:", event.target.id);
+        console.log("currentTarget:", event.currentTarget.id);
+      });
+    </script>
+  </body>
+</html>
