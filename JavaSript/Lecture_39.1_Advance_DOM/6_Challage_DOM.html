@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+                body {
+                        font-family: 'Space Mono', Courier, monospace;
+                }
+        </style>
+</head>
+
+<body>
+        <div id="app"></div>
+
+        <script>
+                const app = document.querySelector('#app');
+
+                const card = document.createElement('div');
+                card.className = "card";
+
+                const h2 = document.createElement('h2');
+                const p = document.createElement('p');
+                const btn = document.createElement('button');
+
+                h2.textContent = "JavaScript";
+                p.textContent = "Learn DOM manipulation";
+                btn.textContent = "Learn More";
+
+                card.append(h2,p,btn);
+
+                app.append(card);
+
+
+        </script>
+</body>
+
+</html>
