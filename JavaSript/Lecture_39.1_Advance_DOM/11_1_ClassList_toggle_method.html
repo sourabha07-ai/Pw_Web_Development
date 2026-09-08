@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: &quot;Space Mono&quot;">
+    <div id="box">Hello</div>
+    <button id="btn">Dark Mode</button>
+
+    <script>
+      //         2. What does toggle() do? 🔄
+
+      // toggle() means:
+      // If the class exists → remove it.
+      // If the class doesn't exist → add it.
+
+      const box = document.querySelector("#box");
+      const btn = document.querySelector("#btn");
+
+      btn.addEventListener('click',()=>{
+           box.classList.toggle('active');
+      })
+    </script>
+
+    <style>
+      .active {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </body>
+</html>
