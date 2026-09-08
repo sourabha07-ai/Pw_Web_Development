@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <!-- <div id="app">
+                <h1>My Todo List</h1>
+                <p>Learn DOM step by step</p>
+                <button>Add Task</button>
+        </div> -->
+
+    <script>
+      const app = document.querySelector("#app");
+
+      const heading = document.createElement("h1");
+      const para1 = document.createElement("p");
+      const btn = document.createElement("button");
+
+      heading.textContent = "My Todo List";
+      para1.textContent = "Learn DOM step by step";
+      btn.textContent = "Add Task";
+
+      app.append(heading, para1, btn);
+    </script>
+  </body>
+</html>
