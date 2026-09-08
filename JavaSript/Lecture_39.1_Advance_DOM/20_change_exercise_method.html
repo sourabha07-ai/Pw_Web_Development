@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body style="font-family: 'Space Mono';">
+                <select id="country">
+                        <option value="" selected>Select</option>
+                        <option value="in">INDIA</option>
+                        <option value="pok">Pakistan</option>
+                        <option value="Sri">Sri Lanka</option>
+                        <option value="Ban">BanglaDesh</option>
+                </select>
+
+                <script>
+                        const country = document.querySelector('#country');
+
+                        country.addEventListener('change',(event)=>{
+                                console.log(event.target.value);
+                        })
+
+                </script>
+        
+</body>
+</html>
