@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+
+        <script>
+                const h1 = document.createElement('h1');
+                const p = document.createElement('p');
+
+                document.addEventListener('keydown',(e)=>{
+                      h1.textContent = `${e.key} ⌨️`;
+
+                      if(e.key == 'Enter'){
+                        p.textContent = "Passed ✅";
+                      }
+                })
+
+                document.body.append(h1,p);
+        </script>
+        
+</body>
+</html>
