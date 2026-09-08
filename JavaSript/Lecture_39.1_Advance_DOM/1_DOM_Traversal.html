@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <div id="app">
+                <h1>My Website</h1>
+
+                <div class="card">
+                        <p>Learn JavaScript</p>
+                        <p>Learn DOM</p>
+                </div>
+
+                <button>Start</button>
+        </div>
+
+        <script>
+                // task 1️⃣ Select .card.
+                const card = document.querySelector(".card");
+
+                // //Task 2️⃣ Print its parent.
+                console.log(card.parentElement);
+
+                // //Task 3️⃣ Print its first <p>.
+                console.log(card.firstElementChild);
+
+                // //Task 4️⃣ Print its last <p>.
+                console.log(card.lastElementChild);
+
+                // //Task 5️⃣ Print the <button> using DOM traversal.
+                console.log(card.nextElementSibling);
+
+                // // Task 6️⃣ Print the <h1> using DOM traversal.
+                console.log(card.previousElementSibling);
+
+
+                //  🎯 Mini Challenge
+                // Don't use querySelector() to directly select the button.
+
+                const button = card.nextElementSibling;
+                console.log(button); 
+
+        </script>
+</body>
+
+</html>
