@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="message" />
+    <p id="count">Count:0</p>
+
+    <script>
+        const message = document.querySelector('#message');
+        const count = document.querySelector('#count');
+
+        message.addEventListener('input',(event)=>{
+            count.textContent = `Count: ${event.target.value.length}` ;
+        })
+
+    </script>
+  </body>
+</html>

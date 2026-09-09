@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: &quot;Space Mono&quot;">
+    <form id="form">
+      <label for="username">Username: </label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter your Username"
+      />
+      <button id="btn" type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+      const form = document.querySelector("#form");
+      const input_value = document.querySelector("#username");
+      const btn = document.querySelector("#btn");
+      const p = document.querySelector("#message");
+
+      input_value.addEventListener("input", (event) => {
+        if (event.target.value.length < 5) {
+          p.textContent = "Too Short ⭐";
+        } else if (event.target.value.length <= 10) {
+          p.textContent = "Valid username ✅";
+        } else {
+          p.textContent = "Too long⭐⭐";
+        }
+      });
+    </script>
+  </body>
+</html>
