@@ -1,354 +1,107 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;font-family:Arial;background:#83d09a}
+.container{width:100%;max-width:420px}
+section{padding:30px;background:#fff;border-radius:12px;box-shadow:0 10px 30px #0002}
+h1{text-align:center;color:#166534;margin-bottom:25px}
+form{display:flex;flex-direction:column;gap:6px}
+label{color:#166534;font-weight:600;margin-top:8px}
+input,select,button{width:100%;padding:12px;border-radius:7px;font-size:15px}
+input,select{border:1px solid #bbf7d0}
+button{margin-top:10px;border:0;background:#16a34a;color:#fff;cursor:pointer}
+.error{color:#dc2626;font-size:12px;min-height:16px}
+.valid{border-color:#22c55e!important}
+.invalid{border-color:#dc2626!important}
+.summary{display:none;margin-top:20px;padding:20px;background:#fff;border-radius:12px;box-shadow:0 10px 30px #0002}
+.summary h2{color:#166534;margin-bottom:12px}
+.summary p{line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<section>
+<h1>Create Account</h1>
+
+<form id="register_form" novalidate>
+
+<label for="username">Name</label>
+<input type="text" id="username" required>
+<span class="error" id="usernameError"></span>
+
+<label for="email">Email</label>
+<input type="email" id="email" required>
+<span class="error" id="emailError"></span>
+
+<label for="password">Password</label>
+<input type="password" id="password" required>
+<span class="error" id="passwordError"></span>
+
+<label for="role">Role</label>
+<select id="role" required>
+<option value="">Select Role</option>
+<option>Coder</option>
+<option>Developer</option>
+<option>Designer</option>
+</select>
+<span class="error" id="roleError"></span>
+
+<button type="submit">Create Account</button>
+</form>
+</section>
+
+<section class="summary" id="summary">
+<h2>Registration Summary</h2>
+<p><strong>Name:</strong> <span id="showName"></span></p>
+<p><strong>Email:</strong> <span id="showEmail"></span></p>
+<p><strong>Role:</strong> <span id="showRole"></span></p>
+</section>
+
+</div>
+
+<script>
+const form=document.querySelector("#register_form");
+const username=document.querySelector("#username");
+const email=document.querySelector("#email");
+const password=document.querySelector("#password");
+const role=document.querySelector("#role");
+
+const usernameError=document.querySelector("#usernameError");
+const emailError=document.querySelector("#emailError");
+const passwordError=document.querySelector("#passwordError");
+const roleError=document.querySelector("#roleError");
+
+function check(input,error,valid,msg){
+error.textContent=valid?"":msg;
+input.classList.toggle("valid",valid);
+input.classList.toggle("invalid",!valid);
+return valid;
+}
+
+form.addEventListener("submit",e=>{
+e.preventDefault();
+
+const u=check(username,usernameError,username.value.trim().length>=3,"Name must be at least 3 characters");
+const em=check(email,emailError,email.validity.valid&&email.value.trim()!=="","Enter a valid email");
+const pw=check(password,passwordError,password.value.length>=8,"Password must be at least 8 characters");
+const r=check(role,roleError,role.value!=="","Please select a role");
+
+if(u&&em&&pw&&r){
+document.querySelector("#showName").textContent=username.value;
+document.querySelector("#showEmail").textContent=email.value;
+document.querySelector("#showRole").textContent=role.value;
+document.querySelector("#summary").style.display="block";
+}
+});
+</script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Registration Form</title>
-
-    <style>
-      /* =========================
-       RESET
-    ========================= */
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* =========================
-       BODY
-    ========================= */
-
-      body {
-        font-family: "Space Mono", monospace;
-
-        min-height: 100vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 30px;
-
-        background: #83d09a;
-      }
-
-      /* =========================
-       CARD
-    ========================= */
-
-      section {
-        width: 100%;
-        max-width: 460px;
-
-        padding: 35px;
-
-        background: #ffffff;
-
-        border: 1px solid #dcfce7;
-        border-radius: 16px;
-
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      }
-
-      /* =========================
-       HEADING
-    ========================= */
-
-      h1 {
-        margin-bottom: 30px;
-
-        text-align: center;
-
-        color: #166534;
-
-        font-size: 28px;
-        font-weight: 700;
-      }
-
-      /* =========================
-       FORM
-    ========================= */
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      /* =========================
-       LABEL
-    ========================= */
-
-      label {
-        margin-top: 8px;
-
-        color: #166534;
-
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      /* =========================
-       INPUT + SELECT
-    ========================= */
-
-      input,
-      select {
-        width: 100%;
-
-        padding: 13px 14px;
-
-        border: 1px solid #bbf7d0;
-        border-radius: 8px;
-
-        outline: none;
-
-        background: #ffffff;
-
-        color: #1f2937;
-
-        font-family: inherit;
-        font-size: 14px;
-
-        transition: all 0.2s ease;
-      }
-
-      /* Placeholder */
-
-      input::placeholder {
-        color: #9ca3af;
-      }
-
-      /* Focus */
-
-      input:focus,
-      select:focus {
-        border-color: #22c55e;
-
-        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
-      }
-
-      /* =========================
-       BUTTON
-    ========================= */
-
-      button {
-        width: 100%;
-
-        margin-top: 18px;
-
-        padding: 13px;
-
-        border: none;
-        border-radius: 8px;
-
-        background: #16a34a;
-        color: #ffffff;
-
-        font-family: inherit;
-        font-size: 15px;
-        font-weight: 600;
-
-        cursor: pointer;
-
-        transition: all 0.2s ease;
-      }
-
-      button:hover {
-        background: #15803d;
-
-        transform: translateY(-1px);
-
-        box-shadow: 0 6px 15px rgba(22, 163, 74, 0.2);
-      }
-
-      button:active {
-        transform: translateY(0);
-      }
-
-      /* =========================
-       MESSAGE
-    ========================= */
-
-      #message {
-        margin-top: 22px;
-
-        padding: 14px;
-
-        border-left: 4px solid #22c55e;
-        border-radius: 6px;
-
-        background: #f0fdf4;
-
-        color: #166534;
-
-        font-size: 13px;
-        line-height: 1.8;
-
-        word-break: break-word;
-      }
-
-      /* =========================
-       LAPTOP / 16:9
-    ========================= */
-
-      @media (min-width: 900px) {
-        body {
-          padding: 40px;
-        }
-
-        section {
-          max-width: 460px;
-        }
-      }
-
-      /* =========================
-       MOBILE
-    ========================= */
-
-      @media (max-width: 600px) {
-        body {
-          padding: 20px;
-        }
-
-        section {
-          padding: 25px 20px;
-
-          border-radius: 12px;
-        }
-
-        h1 {
-          font-size: 24px;
-          margin-bottom: 25px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <section>
-      <h1>Create Account</h1>
-
-      <form id="register_form">
-        <label for="username"> Username </label>
-
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Enter Username"
-          required
-        />
-
-        <label for="email"> Email </label>
-
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter Email"
-          required
-        />
-
-        <label for="password"> Password </label>
-
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter Password"
-          required
-        />
-
-        <label for="role"> Role </label>
-
-        <select id="role" name="role" required>
-          <option value="">-- Select Role --</option>
-
-          <option value="Coder">Coder</option>
-
-          <option value="Developer">Developer</option>
-
-          <option value="Designer">Designer</option>
-        </select>
-
-        <button id="btn" type="submit">Create Account</button>
-      </form>
-
-      <p id="message"></p>
-    </section>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.querySelector("#register_form");
-
-        const username = document.querySelector("#username");
-
-        const email = document.querySelector("#email");
-
-        const password = document.querySelector("#password");
-
-        const role = document.querySelector("#role");
-
-        const btn = document.querySelector("#btn");
-
-        const p = document.querySelector("#message");
-
-        // =========================
-        // USERNAME VALIDATION
-        // =========================
-
-        username.addEventListener("input", (event) => {
-          const length = event.target.value.length;
-
-          if (length < 5) {
-            p.textContent = "Too Short ⭐";
-          } else if (length <= 10) {
-            p.textContent = "Valid username ✅";
-          } else {
-            p.textContent = "Too long ⭐⭐";
-          }
-        });
-
-        // =========================
-        // PASSWORD VALIDATION
-        // =========================
-
-        password.addEventListener("input", (event) => {
-          const length = event.target.value.length;
-
-          if (length < 8) {
-            p.textContent = "Weak Password ⭐";
-          } else {
-            p.textContent = "Strong Password ✅";
-          }
-        });
-
-        // =========================
-        // ROLE SELECTION
-        // =========================
-
-        role.addEventListener("change", (event) => {
-          p.textContent = `Selected role: ${event.target.value}`;
-        });
-
-        // =========================
-        // FORM SUBMISSION
-        // =========================
-
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          p.innerHTML = `Register form submitted ✅<br>
-          Username: ${username.value}<br>
-          Email: ${email.value}<br>
-          Role: ${role.value}`;
-        });
-      });
-    </script>
-  </body>
+</body>
 </html>
