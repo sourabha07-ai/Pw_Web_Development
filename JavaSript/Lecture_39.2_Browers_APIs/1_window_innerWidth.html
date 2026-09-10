@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows APIs</title>
+  </head>
+  <body style="font-family: 'Space Mono';">
+
+    <button id="btn">See the Width</button>
+    <script>
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+       
+       const size = document.getElementById('size');
+       const btn = document.querySelector("#btn");
+       const h2 = document.createElement('h2');
+
+       btn.addEventListener('click',()=>{
+           h2.textContent = `Width: ${width}px, Heigth:${height}px`;
+       })
+
+       document.body.append(h2);
+    </script>
+  </body>
+</html>
