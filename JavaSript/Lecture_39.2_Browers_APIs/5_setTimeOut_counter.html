@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Show message</button>
+    <p id="message"></p>
+
+    <script>
+      const message = document.querySelector("#message");
+      const btn = document.querySelector("#btn");
+
+      btn.addEventListener('click',(e)=>{
+        let second = 10;
+
+        const timer = setInterval(()=>{
+                second--;
+                
+                if(second > 0){
+                        message.textContent = `Please Waiting(${second})...`;
+                }else{
+                        clearInterval(timer);
+                        message.textContent = "Message Updated Successfully✅"
+                }
+        },1000);
+      });
+    </script>
+  </body>
+</html>
