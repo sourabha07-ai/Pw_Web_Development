@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: &quot;Space Mono&quot;">
+    <button id="start">Start</button>
+    <button id="cancel">Cancel</button>
+
+    <p id="message"></p>
+
+    <script>
+         let count = 0;
+         let timeID = 0;
+      const start = document.getElementById("start");
+      const cancel = document.getElementById("cancel");
+      const message = document.getElementById("message");
+
+      start.addEventListener('click',(e)=>{
+        e.preventDefault();
+         timeID =  setInterval(()=>{
+                message.textContent = `Count: ${count++}`;
+
+          },1000)
+
+      });
+
+      cancel.addEventListener('click',(e)=>{
+            e.preventDefault();
+          clearInterval(timeID);
+          count = 0;
+          message.textContent = `Count: Cancel Countdown ❌`
+      });
+
+    </script>
+  </body>
+</html>
