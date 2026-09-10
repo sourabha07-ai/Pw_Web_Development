@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <button id="btn">Show message</button>
+        <p id="message"></p>
+
+        <script>
+                const message = document.querySelector("#message");
+                const btn = document.querySelector("#btn");
+
+                btn.addEventListener('click',(event)=>{
+                    message.textContent = "Please Wait...";
+
+                    setTimeout(()=>{
+                        message.textContent = "Message Updated ✅";
+                    },3000)
+                })
+        </script>
+        
+</body>
+</html>
