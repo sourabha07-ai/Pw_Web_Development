@@ -2,15 +2,14 @@ function first_function(callback) {
         setTimeout(() => {
                 console.log("Hello from First_Function");
                 callback();
-        }, 2000)
+        },2000)
         
-
 }
 function second_function(callback) {
         setTimeout(() => {
                 console.log("Hello from Second_function");
                 callback();
-        }, 1000)
+        },1000)
 }
 
 function third_function(callback) {
@@ -24,7 +23,7 @@ function fourth_function(callback) {
         setTimeout(() => {
                 console.log("Hello form fourth_function");
                 callback();
-        }, 2000)
+        }, 3000)
 
 }
 
