@@ -1,0 +1,91 @@
+<!-- Browser Events — load, scroll, resize, online, and offline, where we'll build things like a scroll-progress bar and responsive browser information. -->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Browser Events</title>
+    <style>
+      #progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background: royalblue;
+        width: 0%;
+      }
+
+      body {
+        min-height: 2000px;
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+
+      #browser-info {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        background: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="progress"></div>
+
+    <div id="browser-info">Loading browser information...</div>
+
+    <h1>Browser Events Demo</h1>
+    <p>Scroll down to see the progress bar.</p>
+
+    <script>
+      const progress = document.getElementById("progress");
+      const browserInfo = document.getElementById("browser-info");
+
+      // 1. load event
+      window.addEventListener("load", () => {
+        console.log("Page has completely loaded.");
+        updateBrowserInfo();
+      });
+
+      // 2. scroll event
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const pageHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        const scrollPercentage = (scrollTop / pageHeight) * 100;
+
+        progress.style.width = scrollPercentage + "%";
+      });
+
+      // 3. resize event
+      window.addEventListener("resize", () => {
+        updateBrowserInfo();
+      });
+
+      // 4. online event
+      window.addEventListener("online", () => {
+        console.log("Internet connection restored.");
+        updateBrowserInfo();
+      });
+
+      // 5. offline event
+      window.addEventListener("offline", () => {
+        console.log("Internet connection lost.");
+        updateBrowserInfo();
+      });
+
+      function updateBrowserInfo() {
+        browserInfo.innerHTML = `
+        <strong>Browser Information</strong><br><br>
+        Width: ${window.innerWidth}px<br>
+        Height: ${window.innerHeight}px<br>
+        Status:
+        ${navigator.onLine ? "Online 🟢" : "Offline 🔴"}
+      `;
+      }
+    </script>
+  </body>
+</html>
