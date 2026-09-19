@@ -28,11 +28,11 @@ function fourth_function(callback) {
 }
 
 function main() {
-        first_function(()=>{
-                second_function(()=>{
-                      third_function(()=>{
-                          fourth_function(()=>{
-                                console.log("Done ✅");
+   first_function(()=>{
+      second_function(()=>{
+        third_function(()=>{
+           fourth_function(()=>{
+             console.log("Done ✅");
                           });
                       });
                 });
