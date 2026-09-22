@@ -1,11 +1,11 @@
 console.log("Start");
 
 setTimeout(() => {
-    console.log("Timer");
+   console.log("Task");
 }, 0);
 
 Promise.resolve().then(() => {
-    console.log("Promise");
+   console.log("Microtask");
 });
 
 console.log("End");
