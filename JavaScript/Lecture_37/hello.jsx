@@ -5,5 +5,4 @@
 // }
 
 // const greeting = greet("World");
-// console.log(greeting);\
- 
+// console.log(greeting);
