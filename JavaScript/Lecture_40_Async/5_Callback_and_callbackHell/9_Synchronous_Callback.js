@@ -1,9 +1,10 @@
 function processUser(name,callback){
-   console.log("Hello",name);
+   console.log("Before Callback",name);
    callback(name);
-   console.log("Tata...",name);
+   console.log("After Callback",name);
 }
 
 processUser("Sourabha Bhai",(name)=>{
+   name = "Raju Bhai";
      console.log("Name from processUser:",name);
-})
+});
