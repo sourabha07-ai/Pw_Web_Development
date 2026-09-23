@@ -1,7 +1,7 @@
-function employee(name,callback){
-    callback(name)
+function outer(callback) {
+  console.log("1");
+  callback();
+  console.log("2");
 }
 
-employee("Sourabha",function anime(name){
-   console.log(name);
-})
+outer(() => console.log("3"));
