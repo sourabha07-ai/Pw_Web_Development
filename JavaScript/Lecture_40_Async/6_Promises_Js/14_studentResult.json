@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "Sourabha Jena",
+    "marks": 89
+  },
+  {
+    "id": 2,
+    "name": "John Sina",
+    "marks": 37
+  },
+  {
+    "id": 3,
+    "name": "Puja Maity",
+    "marks": 78
+  },
+  {
+    "id": 4,
+    "name": "Elina Mal",
+    "marks": 40
+  },
+  {
+    "id": 5,
+    "name": "Rahul Das",
+    "marks": 92
+  },
+  {
+    "id": 6,
+    "name": "Ananya Sharma",
+    "marks": 65
+  },
+  {
+    "id": 7,
+    "name": "Rohan Patel",
+    "marks": 33
+  },
+  {
+    "id": 8,
+    "name": "Sneha Roy",
+    "marks": 81
+  },
+  {
+    "id": 9,
+    "name": "Amit Kumar",
+    "marks": 45
+  },
+  {
+    "id": 10,
+    "name": "Priya Singh",
+    "marks": 29
+  },
+  {
+    "id": 11,
+    "name": "Arjun Mehta",
+    "marks": 74
+  },
+  {
+    "id": 12,
+    "name": "Neha Das",
+    "marks": 56
+  },
+  {
+    "id": 13,
+    "name": "Vikash Nayak",
+    "marks": 38
+  },
+  {
+    "id": 14,
+    "name": "Kavya Reddy",
+    "marks": 95
+  },
+  {
+    "id": 15,
+    "name": "Manish Sahu",
+    "marks": 42
+  }
+]
