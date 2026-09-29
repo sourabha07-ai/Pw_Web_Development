@@ -2,6 +2,7 @@ function UserForm({
     formData,
     editId,
     loading,
+    fieldErrors,
     onChange,
     onSubmit,
     onCancel
@@ -32,9 +33,20 @@ function UserForm({
                         placeholder="Enter name"
                         value={formData.name}
                         onChange={onChange}
-                        required
+                        className={
+                            fieldErrors.name
+                                ? "input-error"
+                                : ""
+                        }
                     />
+
+                    {fieldErrors.name && (
+                        <p className="field-error">
+                            ❌ {fieldErrors.name}
+                        </p>
+                    )}
                 </div>
+
 
                 <div className="form-group">
                     <label>Email</label>
@@ -45,9 +57,20 @@ function UserForm({
                         placeholder="Enter email"
                         value={formData.email}
                         onChange={onChange}
-                        required
+                        className={
+                            fieldErrors.email
+                                ? "input-error"
+                                : ""
+                        }
                     />
+
+                    {fieldErrors.email && (
+                        <p className="field-error">
+                            ❌ {fieldErrors.email}
+                        </p>
+                    )}
                 </div>
+
 
                 <div className="form-group">
                     <label>Age</label>
@@ -58,9 +81,20 @@ function UserForm({
                         placeholder="Enter age"
                         value={formData.age}
                         onChange={onChange}
-                        required
+                        className={
+                            fieldErrors.age
+                                ? "input-error"
+                                : ""
+                        }
                     />
+
+                    {fieldErrors.age && (
+                        <p className="field-error">
+                            ❌ {fieldErrors.age}
+                        </p>
+                    )}
                 </div>
+
 
                 <div className="form-actions">
 

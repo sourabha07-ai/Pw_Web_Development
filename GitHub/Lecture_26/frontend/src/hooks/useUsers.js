@@ -16,6 +16,8 @@ function useUsers() {
 
     const [success, setSuccess] = useState("");
 
+    const [fieldErrors, setFieldErrors] = useState({});
+
     const loadUsers = async () => {
         try {
             setLoading(true);
@@ -41,6 +43,7 @@ function useUsers() {
             setLoading(true);
             setError("");
             setSuccess("");
+            setFieldErrors({});
 
             await createUser(userData);
 
@@ -51,6 +54,8 @@ function useUsers() {
             return true;
         } catch (error) {
             setError(error.message);
+
+            setFieldErrors(error.errors || {});
 
             return false;
         } finally {
@@ -63,6 +68,7 @@ function useUsers() {
             setLoading(true);
             setError("");
             setSuccess("");
+            setFieldErrors({});
 
             await updateUser(id, userData);
 
@@ -73,6 +79,8 @@ function useUsers() {
             return true;
         } catch (error) {
             setError(error.message);
+
+            setFieldErrors(error.errors || {});
 
             return false;
         } finally {
@@ -85,6 +93,7 @@ function useUsers() {
             setLoading(true);
             setError("");
             setSuccess("");
+            setFieldErrors({});
 
             await deleteUser(id);
 
@@ -101,16 +110,27 @@ function useUsers() {
             setLoading(false);
         }
     };
+    const clearFieldError = (field) => {
+    setFieldErrors((previous) => {
+        const updated = { ...previous };
 
-    return {
-        users,
-        loading,
-        error,
-        success,
-        addUser,
-        editUser,
-        removeUser
-    };
+        delete updated[field];
+
+        return updated;
+    });
+};
+     
+   return {
+    users,
+    loading,
+    error,
+    success,
+    fieldErrors,
+    clearFieldError,
+    addUser,
+    editUser,
+    removeUser
+};
 }
 
 export default useUsers;

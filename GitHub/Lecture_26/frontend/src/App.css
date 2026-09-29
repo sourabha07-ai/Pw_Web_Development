@@ -325,3 +325,12 @@ button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+.input-error {
+    border: 1px solid #dc2626;
+}
+
+.field-error {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: #dc2626;
+}

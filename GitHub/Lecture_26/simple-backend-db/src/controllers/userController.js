@@ -1,77 +1,64 @@
+const asyncHandler = require("express-async-handler");
+
 const User = require("../models/User");
 
-const createUser = async (req, res) => {
-    try {
-        const user = await User.create(req.body);
+const getUsers = asyncHandler(async (req, res) => {
+    const users = await User.find();
 
-        res.status(201).json(user);
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
-    }
-};
+    res.json(users);
+});
 
-const getUsers = async (req, res) => {
-    try {
-        const users = await User.find();
+const createUser = asyncHandler(async (req, res) => {
+    const { name, email, age } = req.body;
 
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
-    }
-};
+    const user = await User.create({
+        name,
+        email,
+        age
+    });
 
-const updateUser = async (req, res) => {
-    try {
-        const user = await User.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            {
-                new: true,
-                runValidators: true
-            }
-        );
+    res.status(201).json(user);
+});
 
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found"
-            });
+const updateUser = asyncHandler(async (req, res) => {
+    const user = await User.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+            runValidators: true
         }
+    );
 
-        res.json(user);
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
+    if (!user) {
+        res.status(404);
+
+        throw new Error("User not found");
     }
-};
 
-const deleteUser = async (req, res) => {
-    try {
-        const user = await User.findByIdAndDelete(req.params.id);
+    res.json(user);
+});
 
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found"
-            });
-        }
+const deleteUser = asyncHandler(async (req, res) => {
+    const user = await User.findByIdAndDelete(
+        req.params.id
+    );
 
-        res.json({
-            message: "User deleted successfully"
-        });
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
+    if (!user) {
+        res.status(404);
+
+        throw new Error("User not found");
     }
-};
+
+    res.json({
+        success: true,
+        message: "User deleted successfully"
+    });
+});
 
 module.exports = {
-    createUser,
     getUsers,
+    createUser,
     updateUser,
     deleteUser
 };
