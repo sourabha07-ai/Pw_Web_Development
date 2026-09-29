@@ -18,6 +18,27 @@ function useUsers() {
 
     const [fieldErrors, setFieldErrors] = useState({});
 
+    useEffect(() => {
+        if (!success) return;
+
+        const timer = setTimeout(() => {
+            setSuccess("");
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [success]);
+
+
+    useEffect(() => {
+        if (!error) return;
+
+        const timer = setTimeout(() => {
+            setError("");
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [error]);
+
     const loadUsers = async () => {
         try {
             setLoading(true);

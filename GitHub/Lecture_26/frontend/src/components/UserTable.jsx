@@ -1,34 +1,31 @@
+import "../styles/UserTable.css";
+
 function UserTable({
     users,
     loading,
     onEdit,
     onDelete
 }) {
-    if (loading && users.length === 0) {
+    if (loading) {
         return (
-            <div className="empty-state">
-                <h3>Loading users...</h3>
+            <div className="table-message">
+                Loading users...
             </div>
         );
     }
 
     if (users.length === 0) {
         return (
-            <div className="empty-state">
+            <div className="table-message">
                 <h3>No users found</h3>
-
-                <p>
-                    Add your first user using the form.
-                </p>
+                <p>Add your first user using the form.</p>
             </div>
         );
     }
 
     return (
-        <div className="table-wrapper">
-
-            <table>
-
+        <div className="user-table-wrapper">
+            <table className="user-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -39,32 +36,19 @@ function UserTable({
                 </thead>
 
                 <tbody>
-
                     {users.map((user) => (
-
                         <tr key={user._id}>
-
                             <td>
                                 <div className="user-name">
-
-                                    <div className="avatar">
-                                        {user.name
-                                            .charAt(0)
-                                            .toUpperCase()}
-                                    </div>
-
-                                    <span>
-                                        {user.name}
+                                    <span className="avatar">
+                                        {user.name.charAt(0).toUpperCase()}
                                     </span>
 
+                                    {user.name}
                                 </div>
                             </td>
 
-                            <td>
-                                <span className="email">
-                                    {user.email}
-                                </span>
-                            </td>
+                            <td>{user.email}</td>
 
                             <td>
                                 <span className="age">
@@ -74,38 +58,25 @@ function UserTable({
 
                             <td>
                                 <div className="actions">
-
                                     <button
-                                        className="edit-btn"
-                                        onClick={() =>
-                                            onEdit(user)
-                                        }
-                                        disabled={loading}
+                                        className="edit-button"
+                                        onClick={() => onEdit(user)}
                                     >
                                         Edit
                                     </button>
 
                                     <button
-                                        className="delete-btn"
-                                        onClick={() =>
-                                            onDelete(user._id)
-                                        }
-                                        disabled={loading}
+                                        className="delete-button"
+                                        onClick={() => onDelete(user._id)}
                                     >
                                         Delete
                                     </button>
-
                                 </div>
                             </td>
-
                         </tr>
-
                     ))}
-
                 </tbody>
-
             </table>
-
         </div>
     );
 }

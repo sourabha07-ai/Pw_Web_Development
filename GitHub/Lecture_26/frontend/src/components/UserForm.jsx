@@ -1,3 +1,5 @@
+import "../styles/UserForm.css";
+
 function UserForm({
     formData,
     editId,
@@ -8,124 +10,81 @@ function UserForm({
     onCancel
 }) {
     return (
-        <section className="card form-card">
+        <div className="user-form">
+            <h2>{editId ? "Edit User" : "Add User"}</h2>
 
-            <div className="card-header">
-                <h2>
-                    {editId ? "Edit User" : "Add User"}
-                </h2>
-
-                <p>
-                    {editId
-                        ? "Update user information"
-                        : "Create a new user"}
-                </p>
-            </div>
+            <p className="form-subtitle">
+                {editId ? "Update user information" : "Create a new user"}
+            </p>
 
             <form onSubmit={onSubmit}>
+                <label>Name</label>
 
-                <div className="form-group">
-                    <label>Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter name"
+                    value={formData.name}
+                    onChange={onChange}
+                />
 
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter name"
-                        value={formData.name}
-                        onChange={onChange}
-                        className={
-                            fieldErrors.name
-                                ? "input-error"
-                                : ""
-                        }
-                    />
+                {fieldErrors?.name && (
+                    <p className="field-error">
+                        {fieldErrors.name}
+                    </p>
+                )}
 
-                    {fieldErrors.name && (
-                        <p className="field-error">
-                            ❌ {fieldErrors.name}
-                        </p>
-                    )}
-                </div>
+                <label>Email</label>
 
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    value={formData.email}
+                    onChange={onChange}
+                />
 
-                <div className="form-group">
-                    <label>Email</label>
+                {fieldErrors?.email && (
+                    <p className="field-error">
+                        {fieldErrors.email}
+                    </p>
+                )}
 
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter email"
-                        value={formData.email}
-                        onChange={onChange}
-                        className={
-                            fieldErrors.email
-                                ? "input-error"
-                                : ""
-                        }
-                    />
+                <label>Age</label>
 
-                    {fieldErrors.email && (
-                        <p className="field-error">
-                            ❌ {fieldErrors.email}
-                        </p>
-                    )}
-                </div>
+                <input
+                    type="number"
+                    name="age"
+                    placeholder="Enter age"
+                    value={formData.age}
+                    onChange={onChange}
+                />
 
+                {fieldErrors?.age && (
+                    <p className="field-error">
+                        {fieldErrors.age}
+                    </p>
+                )}
 
-                <div className="form-group">
-                    <label>Age</label>
+                <button type="submit" disabled={loading}>
+                    {loading
+                        ? "Saving..."
+                        : editId
+                            ? "Update User"
+                            : "Add User"}
+                </button>
 
-                    <input
-                        type="number"
-                        name="age"
-                        placeholder="Enter age"
-                        value={formData.age}
-                        onChange={onChange}
-                        className={
-                            fieldErrors.age
-                                ? "input-error"
-                                : ""
-                        }
-                    />
-
-                    {fieldErrors.age && (
-                        <p className="field-error">
-                            ❌ {fieldErrors.age}
-                        </p>
-                    )}
-                </div>
-
-
-                <div className="form-actions">
-
+                {editId && (
                     <button
-                        type="submit"
-                        className="btn btn-primary"
-                        disabled={loading}
+                        type="button"
+                        className="cancel-button"
+                        onClick={onCancel}
                     >
-                        {loading
-                            ? "Saving..."
-                            : editId
-                                ? "Update User"
-                                : "Add User"}
+                        Cancel
                     </button>
-
-                    {editId && (
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
-                            onClick={onCancel}
-                            disabled={loading}
-                        >
-                            Cancel
-                        </button>
-                    )}
-
-                </div>
-
+                )}
             </form>
-
-        </section>
+        </div>
     );
 }
 
