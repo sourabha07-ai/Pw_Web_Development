@@ -11,15 +11,21 @@
 # user=$(whoami)
 # echo "Current user: $user"
 
+# ls
+
+files=$(ls)
+echo "$files"
+
+
 #!/bin/bash
 
-user=$(whoami)
-directory=$(pwd)
-today=$(date)
+# user=$(whoami)
+# directory=$(pwd)
+# today=$(date)
 
-echo "User: $user"
-echo "Directory: $directory"
-echo "Date: $today"
+# echo "User: $user"
+# echo "Directory: $directory"
+# echo "Date: $today"
 
 #!/bin/bash
 
